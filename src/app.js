@@ -12,7 +12,7 @@ const app = async (yargs) => {
     if (yargs.action && yargs.action.length > 0) {
       switch (yargs.action) {
         case "create":
-          await createMovie();
+          await createMovie(yargs.movie);
           break;
 
         case "read":
