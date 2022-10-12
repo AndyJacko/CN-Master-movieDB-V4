@@ -2,6 +2,19 @@
 
 ---
 
+### Create Movie
+
+// Error: Unknown Movie Format\
+node src/app --action create --movie
+
+// Error: Movie Already In DB\
+node src/app --action create --movie "Bugsy Malone, Jodie Foster, Alan Parker, Comedy, 4, 1976"
+
+// Movie Created + Details\
+node src/app --action create --movie "*title*, *actor*, *director*, *genre*, *rating*, *released*"
+
+---
+
 ### View Movie By ID
 
 // Error: Unknown ID Format\
