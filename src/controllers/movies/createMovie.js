@@ -17,10 +17,10 @@ exports.createMovie = async (movie) => {
   let addedMovie = false;
 
   if (movie && movie !== true) {
-    try {
-      const mov = movie.split(",");
+    const mov = movie.split(",");
 
-      if (mov.length === 6) {
+    if (mov.length === 6) {
+      try {
         const movieExists = await Movie.find({ title: mov[0].trim() });
 
         if (movieExists[0]) {
@@ -48,11 +48,11 @@ exports.createMovie = async (movie) => {
             error = err;
           }
         }
-      } else {
-        error = `Invalid Movie Format`;
+      } catch (err) {
+        error = err;
       }
-    } catch (err) {
-      error = err;
+    } else {
+      error = `Invalid Movie Format`;
     }
   } else {
     error = `Unknown Movie Format`;
