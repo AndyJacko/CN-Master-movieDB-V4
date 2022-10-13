@@ -155,7 +155,7 @@ node src/app --action createShow --show
 node src/app --action createShow --show "Breaking Bad, Bryan Cranston, AMC, Crime Drama, 4, 2008"
 
 // TV Show Created + Details\
-node src/app --action createShow --show "_title_, _actor_, _director_, _genre_, _rating_, _released_"
+node src/app --action createShow --show "_title_, _actor_, _channel_, _genre_, _rating_, _released_"
 
 ---
 
