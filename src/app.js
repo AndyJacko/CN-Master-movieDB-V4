@@ -8,8 +8,8 @@ const { updateMovie } = require("./controllers/movies/updateMovie");
 const { deleteMovie } = require("./controllers/movies/deleteMovie");
 
 const app = async (yargs) => {
-  try {
-    if (yargs.action && yargs.action.length > 0) {
+  if (yargs.action && yargs.action.length > 0) {
+    try {
       switch (yargs.action) {
         case "create":
           await createMovie(yargs.movie);
@@ -24,25 +24,25 @@ const app = async (yargs) => {
           break;
 
         case "update":
-          await updateMovie();
+          await updateMovie(yargs.id, yargs.movie);
           break;
 
         case "delete":
-          await deleteMovie();
+          await deleteMovie(yargs.id);
           break;
 
         default:
           console.log(`\n\nUnknown Action`);
           break;
       }
-    } else {
-      console.log(`\n\nNo Action Supplied`);
-    }
 
-    mongoose.disconnect();
-  } catch (err) {
-    console.log(err);
-    mongoose.disconnect();
+      await mongoose.disconnect();
+    } catch (err) {
+      console.log(err);
+      await mongoose.disconnect();
+    }
+  } else {
+    console.log(`\n\nNo Action Supplied`);
   }
 };
 

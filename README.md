@@ -1,7 +1,5 @@
 # Test Data
 
----
-
 ### Create Movie
 
 // Error: Unknown Movie Format\
@@ -11,7 +9,7 @@ node src/app --action create --movie
 node src/app --action create --movie "Bugsy Malone, Jodie Foster, Alan Parker, Comedy, 4, 1976"
 
 // Movie Created + Details\
-node src/app --action create --movie "*title*, *actor*, *director*, *genre*, *rating*, *released*"
+node src/app --action create --movie "_title_, _actor_, _director_, _genre_, _rating_, _released_"
 
 ---
 
@@ -110,5 +108,24 @@ node src/app --action read --search rating --val "3"
 
 // Returns List Of All Movies\
 node src/app --action read
+
+---
+
+### Update Movie
+
+// Error: Unknown ID Format\
+node src/app --action update --id 123
+
+// Error: Unknown Movie Format\
+node src/app --action update --id 63454bc95a1554790bd1cfb3 --movie
+
+// Error: Invalid Movie Format\
+node src/app --action update --id 63454bc95a1554790bd1cfb3 --movie "Ted 2"
+
+// Error: No Movie Found with ID: 6347033ba876da476757088f\
+node src/app --action update --id 6347033ba876da476757088f --movie "Bugsy Malone, Jodie Foster, Alan Parker, Comedy, 4, 1976"
+
+// Movie Updated + Details\
+node src/app --action update --id 6347033ba876da476757088e --movie "3:33, Sandy, Nambikkai Chandru, Psychological Horror, 3, 2021"
 
 ---
