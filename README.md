@@ -129,3 +129,16 @@ node src/app --action update --id 6347033ba876da476757088f --movie "Bugsy Malone
 node src/app --action update --id 6347033ba876da476757088e --movie "3:33, Sandy, Nambikkai Chandru, Psychological Horror, 3, 2021"
 
 ---
+
+### Delete Movie
+
+// Error: Unknown ID Format\
+node src/app --action delete --id 123
+
+// Error: No Movie Found With ID: 634704004304e2c9d1ce1371\
+node src/app --action delete --id 634704004304e2c9d1ce1371
+
+// Error: Unknown Movie Format\
+node src/app --action delete --id 6347ea7eb3ced99c7b0da345
+
+---
