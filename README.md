@@ -138,7 +138,7 @@ node src/app --action delete --id 123
 // Error: No Movie Found With ID: 634704004304e2c9d1ce1371\
 node src/app --action delete --id 634704004304e2c9d1ce1371
 
-// Error: Unknown Movie Format\
+// Movie Deleted + Details\
 node src/app --action delete --id 6347ea7eb3ced99c7b0da345
 
 ---
